@@ -1,0 +1,12 @@
+﻿@model IEnumerable<motor_cycle1.Models.XEGANMAY>
+
+
+@foreach (var xemay in Model)
+{
+    <li>
+        <a href=" @Url.Action("Detail", "Moto_cycle" , new {id=xemay.MaXe})">
+            <img alt="@xemay.TenXe" src="~/Content/images/@xemay.Anhbia" />
+            <span>@xemay.TenXe</span>
+        </a>
+    </li>
+}    
