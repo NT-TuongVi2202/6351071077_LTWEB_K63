@@ -1,12 +1,22 @@
 ﻿@model IEnumerable<motor_cycle1.Models.XEGANMAY>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div class="row">
+    @foreach (var xemay in Model)
+    {
+        <div class="col-sm-4 col g-lg-4 col-md -4">
+            <div class="thumbnail">
 
-
-@foreach (var xemay in Model)
-{
-    <li>
-        <a href=" @Url.Action("Detail", "Moto_cycle" , new {id=xemay.MaXe})">
-            <img alt="@xemay.TenXe" src="~/Content/images/@xemay.Anhbia" />
-            <span>@xemay.TenXe</span>
-        </a>
-    </li>
-}    
+            </div>
+        </div>
+      
+            <a href=" @Url.Action("Detail", "Moto_cycle" , new {id=xemay.MaXe})">
+                <img alt="@xemay.TenXe" src="~/Content/images/@xemay.Anhbia" />
+                <span>@xemay.TenXe</span>
+            </a>
+     
+        
+    }
+</div>

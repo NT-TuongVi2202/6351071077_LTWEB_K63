@@ -36,17 +36,28 @@ namespace motor_cycle1.Controllers
 
             return PartialView(chude);
         }
-        public ActionResult SPTheoLoaiXe(int id)
+        public ActionResult SPTheoLoaiXe(int? id)
         {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
             var xe = from s in data.XEGANMAYs where s.MaLX == id select s;
 
             return PartialView(xe);
         }
-        public ActionResult Detail(int id)
+       
+        public ActionResult Detail(int id )
         {
-            ViewBag.Message = "Your contact page.";
+          
+            var xemay = from s in data.LOAIXEs where s.MaLX == id select s;
+            if (xemay == null)
+            {
+                return HttpNotFound(); // Xử lý nếu xe không tồn tại
+            }
 
-            return View();
+
+            return View( xemay.Single());
         }
     }
 }

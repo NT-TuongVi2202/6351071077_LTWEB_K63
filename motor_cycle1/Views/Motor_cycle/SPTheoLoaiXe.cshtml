@@ -1,12 +1,40 @@
-﻿@model IEnumerable<motor_cycle1.Models.XEGANMAY>
+﻿
+@model IEnumerable < motor_cycle1.Models.XEGANMAY >   
+    @{
+        ViewBag.Title = "SPTheoLoaiXe";
+        Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    }
+
+<h3 style="text-align:center; color:red">Xe theo loại</h3>
+<div class="row">
+    @foreach (var xemay in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details", "Motor_cycle", new { id = xemay.MaXe })">
+                    <img alt="@xemay.TenXe" src="@Url.Content("~/hình sản phẩm" + xemay.Anhbia)" width="200" />
+                </a>
+
+                <div>
+                    <br />
+                    <h4 style="text-align:center">
+                        @xemay.TenXe
+                    </h4>
+                    <p>@xemay.Mota</p> <!--hiển thị mô tả từ cơ sở dữ liệu-->
+                </div>
+                <div class="ratings">
+                    <p class="pull-right"> 15 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
 
 
-@foreach (var xemay in Model)
-{
-    <li>
-        <a href=" @Url.Action("Detail", "Moto_cycle" , new {id=xemay.MaXe})">
-            <img alt="@xemay.TenXe" src="~/Content/images/@xemay.Anhbia" />
-            <span>@xemay.TenXe</span>
-        </a>
-    </li>
-}    
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

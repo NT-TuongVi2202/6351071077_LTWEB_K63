@@ -1,0 +1,48 @@
+﻿@model motor_cycle1.Models.XEGANMAY
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Thông tin chi tiết xe</h2>
+<h3> Tên xe : @Model.TenXe</h3>
+<style type="text/css">
+    #Datmua a {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 35px;
+        display: block;
+        float: right;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        #Datmua a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
+
+<h3>Thông tin chi tiết xe</h3>
+<div>
+    <div style="width:40%; float:left;  border-left:dotted 1px; border-color: azure">
+        <img src=~/Content/images/xe1.jpg width="100" />
+    </div>
+    <div style="width:60%; float:left; padding:10px">
+        <h4 style="font-weight:bold; color:red">Tên xe : @Model.TenXe</h4>
+        <p style="text-align:justify"><span style="font-weight:bold">Mô tả: </span>@(string.IsNullOrEmpty(Model.Mota) ? "Không có mô tả" : Model.Mota)</p>
+        <p style="font-weight:bold"> Gía bán: <span style="color:red; font-size:16pt">@Model.Giaban VNĐ</span></p>
+    </div>
+    <div>
+        <div id="Datmua">
+           <a href="@Url.Action("ThemGioHang", "GioHang", new {@iMaXe= Model.MaXe, @strURL= Request.Url.ToString()})"> Đặt mua</a>
+
+        </div>
+
+    </div>
+</div>
